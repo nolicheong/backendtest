@@ -12,7 +12,7 @@ public class toFile {
 	public void Write(Log lg) {
 
 		try {
-		      File myObj = new File("logs.txt");
+		      File myObj = new File("./logs/logs.txt");
 		      if (myObj.createNewFile()) {
 				  System.out.println("File created: " + myObj.getName());
 		      } else {
@@ -24,7 +24,7 @@ public class toFile {
 		    }
 		
 		try {
-		      FileWriter myWriter = new FileWriter("logs.txt");
+		      FileWriter myWriter = new FileWriter("./logs/logs.txt");
 		      PrintWriter printWriter = new PrintWriter(myWriter);
 		      
 		      printWriter.print("");
