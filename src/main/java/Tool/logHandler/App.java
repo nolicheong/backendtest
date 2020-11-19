@@ -2,7 +2,10 @@ package Tool.logHandler;
 
 import java.util.Date;
 
+import Tool.logHandler.controllers.toFile;
 import Tool.logHandler.models.Log;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class App 
@@ -10,6 +13,8 @@ public class App
 	
 	
 	private static final handler handler = new handler();
+
+    private static final Logger logger = LogManager.getLogger(App.class);
 	  
 	public static void main( String[] args )
     {
@@ -20,10 +25,10 @@ public class App
            inLog.setType(args[1]);
            inLog.setSeverity(args[2]);
            inLog.setDate(new Date());
-    	   handler.handler(inLog);
+    	   handler.handle(inLog);
     	   
        } else {
-    	   System.out.println("Missing params: (msg stdout(console, file, db) severity");
+            logger.info("Missing params: (msg stdout(console, file, db) severity");
        }
         
     }

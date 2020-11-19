@@ -6,6 +6,8 @@ import Tool.logHandler.controllers.toConsole;
 import Tool.logHandler.controllers.toDb;
 import Tool.logHandler.controllers.toFile;
 import Tool.logHandler.models.Log;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class handler {
 	
@@ -13,12 +15,14 @@ public class handler {
 	private static final toFile toFile = new toFile();
 	private static final toDb toDb = new toDb();
 
-	public void handler(Log lg) {
-		System.out.println("Date: " + DateFormat.getDateInstance(DateFormat.LONG).format(lg.getDate()));
-		System.out.println("type: " + lg.getType());
-		System.out.println("Message: " + lg.getMsg());
-		System.out.println("Severity: " + lg.getSeverity());
-		System.out.println("");
+	private static final Logger logger = LogManager.getLogger(handler.class);
+
+	public void handle(Log lg) {
+		logger.info("Date: " + DateFormat.getDateInstance(DateFormat.LONG).format(lg.getDate()));
+		logger.info("type: " + lg.getType());
+		logger.info("Message: " + lg.getMsg());
+		logger.info("Severity: " + lg.getSeverity());
+		logger.info("");
 		
 		
 		if ("console".equalsIgnoreCase(lg.getType()) ) {
@@ -35,8 +39,8 @@ public class handler {
 			toDb.Write(lg);
 			return;
 		}
-		
-		System.out.println("Invalid stdout value: " + lg.getType() + " only () allowed");
+
+		logger.info("Invalid stdout value: " + lg.getType() + " only () allowed");
 		
 	}
 }
