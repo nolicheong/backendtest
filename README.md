@@ -36,3 +36,5 @@ Run without container
 $ mvn -q clean compile exec:java -Dexec.mainClass="Tool.logHandler.App" -Dexec.args="asasas console error"
 ```
 
+
+

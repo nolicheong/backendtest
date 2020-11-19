@@ -47,7 +47,7 @@ public class toFile {
 		      PrintWriter printWriter = new PrintWriter(myWriter);
 		      
 		      printWriter.print("");
-		      printWriter.printf(lg.getMsg()+"("+lg.getSeverity()+")"+lg.getDate().toString());
+		      printWriter.printf(lg.getDate().toString()+"("+lg.getSeverity()+")" + lg.getMsg());
 		      printWriter.close();
 		      myWriter.close();
 		      System.out.println("Successfully wrote to the file.");
