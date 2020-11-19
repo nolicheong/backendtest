@@ -1,0 +1,6 @@
+Tool/logHandler/App.class
+Tool/logHandler/controllers/toFile.class
+Tool/logHandler/controllers/toConsole.class
+Tool/logHandler/models/Log.class
+Tool/logHandler/handler.class
+Tool/logHandler/controllers/toDb.class
